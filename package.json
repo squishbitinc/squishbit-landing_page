@@ -1,0 +1,12 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "Minimal landing page with TailwindCSS",
+  "scripts": {
+    "build": "tailwindcss -i ./css/input.css -o ./css/styles.css --minify",
+    "watch": "tailwindcss -i ./css/input.css -o ./css/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+} 

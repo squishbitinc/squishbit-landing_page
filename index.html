@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squishbit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <!-- Custom styles (includes Tailwind) -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- AlpineJS CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="bg-stone-50 text-blue-700">
+    <header class="container mx-auto px-4 py-8">
+      <h1 class="text-2xl font-condensed tracking-normal font-bold uppercase text-center">Squishbit</h1>
+    </header>
+
+    <main class="container mx-auto px-4">
+      <section class="py-16 flex flex-col items-center gap-y-20">
+        <h2 class="text-6xl tracking-tighter font-bold text-center text-balance">Faster pageloads, better user experience, and more conversions.</h2>
+        
+        <div x-data="{ useCdn: false }" class="flex flex-col items-center gap-y-8">
+          <!-- Toggle Switch -->
+          <label class="inline-flex items-center cursor-pointer">
+            <span class="mr-3 text-sm font-medium">Default</span>
+            <div class="relative inline-flex items-center">
+              <input type="checkbox" x-model="useCdn" class="sr-only peer">
+              <div class="w-11 h-6 bg-blue-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:translate-x-[-100%] peer-checked:after:border-white peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+            </div>
+            <span class="ml-3 text-sm font-medium">Squishbit</span>
+          </label>
+
+          <!-- Images -->
+          <div class="w-2/3 relative">
+            <img 
+              x-show="useCdn"
+              src="images/4k-bird-cdn.jpg" 
+              alt="4k bird from CDN" 
+              class="w-full rounded-lg"
+            >
+            <img 
+              x-show="!useCdn"
+              src="images/4k-bird.jpg" 
+              alt="4k bird from local" 
+              class="w-full rounded-lg"
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container mx-auto px-4 py-8 mt-8">
+        <p class="text-center">© 2024 Your Name</p>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+  </body>
+</html> 

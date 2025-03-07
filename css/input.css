@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles beyond Tailwind */ 
+
+@layer base {
+  body {
+    @apply font-mono;
+  }
+}
+
+@layer components {
+  .font-mono {
+    @apply tracking-tight;
+  }
+}
