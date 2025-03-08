@@ -726,6 +726,10 @@ body {
   max-width: 64rem;
 }
 
+.max-w-3xl {
+  max-width: 48rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -740,6 +744,10 @@ body {
 
 .list-disc {
   list-style-type: disc;
+}
+
+.list-decimal {
+  list-style-type: decimal;
 }
 
 .flex-col {
@@ -949,6 +957,10 @@ body {
   padding-top: 1rem;
 }
 
+.pl-4 {
+  padding-left: 1rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1063,6 +1075,21 @@ body {
 .text-blue-400 {
   --tw-text-opacity: 1;
   color: rgb(96 115 255 / var(--tw-text-opacity, 1));
+}
+
+.text-green-400 {
+  --tw-text-opacity: 1;
+  color: rgb(74 222 128 / var(--tw-text-opacity, 1));
+}
+
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity, 1));
+}
+
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity, 1));
 }
 
 .underline {
