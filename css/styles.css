@@ -662,6 +662,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -764,6 +768,10 @@ body {
 
 .gap-24 {
   gap: 6rem;
+}
+
+.gap-16 {
+  gap: 4rem;
 }
 
 .gap-x-8 {
@@ -951,6 +959,11 @@ body {
 .py-0\.5 {
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .pt-4 {
@@ -1210,6 +1223,10 @@ body {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:gap-24 {
+    gap: 6rem;
   }
 
   .md\:p-12 {
