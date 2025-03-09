@@ -32,21 +32,22 @@
             </div>
             <span class="ml-3 text-sm font-medium">Squishbit</span>
           </label>
-          <div class="text-sm font-medium flex gap-x-2"><span>4k-bird.jpg</span><span x-show="useCdn" class="text-green-600">80kb</span><span x-show="!useCdn" class="text-red-400">2.3mb</span></div>
-
+          
           <!-- Images -->
-          <div class="w-full max-w-5xl relative">
+          <div class="w-full max-w-5xl relative rounded-lg overflow-hidden">
+            <div x-show="useCdn" class="absolute top-0 left-0 p-1 px-1.5 bg-gray-900 text-xs font-medium flex gap-x-2"><span class="text-white">4k-bird.avif</span><span class="text-green-600">80kb</span></div>
+            <div x-show="!useCdn" class="absolute top-0 left-0 p-1 px-1.5 bg-gray-900 text-xs font-medium flex gap-x-2"><span class="text-white">4k-bird.jpg</span><span class="text-red-400">2.3mb</span></div>
             <img 
               x-show="useCdn"
               src="https://cdn.squishbit.com/token/https://squishbitinc.github.io/squishbit-landing_page/images/4k-bird.jpg" 
               alt="4k bird from CDN" 
-              class="w-full rounded-lg"
+              class="w-full"
             >
             <img 
               x-show="!useCdn"
               src="images/4k-bird.jpg" 
               alt="4k bird from local" 
-              class="w-full rounded-lg"
+              class="w-full"
             >
           </div>
         </div>
