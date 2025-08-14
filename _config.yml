@@ -47,14 +47,9 @@ kramdown:
 collections:
   posts:
     output: true
-
-# Defaults: apply default layout to pages unless overridden
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
+  pages:
+    output: true
+    permalink: /:slug/
 
 # SASS/SCSS directory (unused but conventional)
 sass:
