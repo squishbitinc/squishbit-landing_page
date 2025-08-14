@@ -1,57 +1,77 @@
-# Landing Page
+# Squishbit Jekyll Site
 
-A simple, lightweight landing page using TailwindCSS and AlpineJS.
+A Jekyll-based site using TailwindCSS and AlpineJS, built on push by GitHub Actions and deployed to GitHub Pages (with custom domain via CNAME).
 
 ## Technologies Used
 
-- HTML5
-- TailwindCSS (optimized build)
+- Jekyll (GitHub Pages-compatible)
+- GitHub Pages + Actions (automated builds)
+- Ruby + Bundler
+- Minima theme and Liquid templates
+- TailwindCSS (prebuilt css/styles.css via npm)
 - AlpineJS (via CDN)
-- Vanilla JavaScript
-- CSS
+- HTML5
 
 ## Project Structure
 
 ```
 .
-├── index.html          # Main HTML file
+├── _config.yml
+├── _layouts/
+│   └── default.html
+├── _includes/
+├── _posts/
+├── _sass/
+├── .github/
+│   └── workflows/
+│       └── pages.yml     # Builds Tailwind, Jekyll, deploys to Pages
+├── CNAME                 # Custom domain (www.squishbit.com)
+├── Gemfile
+├── index.html            # Homepage content (uses layout)
 ├── css/
-│   ├── input.css      # Tailwind input file
-│   └── styles.css     # Generated CSS (don't edit directly)
+│   ├── input.css         # Tailwind source
+│   └── styles.css        # Generated CSS (committed, also rebuilt in CI)
+├── images/
+│   └── 4k-bird.jpg
 ├── js/
-│   └── main.js        # Custom JavaScript
-├── tailwind.config.js # Tailwind configuration
-├── package.json       # Project dependencies
-├── .gitignore        # Git ignore configuration
-└── README.md         # Project documentation
+│   └── main.js
+├── package.json          # Tailwind scripts
+├── package-lock.json
+├── tailwind.config.js    # Tailwind config (scans Jekyll dirs)
+└── README.md
 ```
 
-## Development
+## Local development
 
-This is a simple static website that can be served directly from GitHub Pages. To develop locally:
+Prerequisites: Ruby, Bundler, and Node.js 18+ installed. Then:
 
 1. Clone this repository
-2. Run `npm install` to install dependencies
-3. Run `npm run watch` to start the Tailwind build process in watch mode
-4. Open `index.html` in your browser
-5. Make changes to the files as needed - Tailwind will automatically rebuild when you save
+2. Run `bundle install` to install Ruby gems
+3. Run `npm ci` to install Node dependencies
+4. Run `npm run build` once to generate `css/styles.css` (or `npm run watch` to rebuild on save)
+5. Run `bundle exec jekyll serve` to start the local server
+6. Open http://127.0.0.1:4000/
+7. Edit content in `index.html`, `_layouts/`, `_includes/`; Tailwind will rebuild when running `watch`
 
-## Production Build
+## CI/CD & deployment
 
-Before committing your changes:
+This repository uses GitHub Actions to build Tailwind, build the Jekyll site, and deploy to GitHub Pages on every push to `main`.
 
-1. Run `npm run build` to generate an optimized CSS build
-2. Commit the generated `css/styles.css` file along with your other changes
-3. The `node_modules` folder should not be committed (it's in .gitignore)
+- Workflow: `.github/workflows/pages.yml`
+- It runs:
+  - `npm ci` and `npm run build` (produces `css/styles.css`)
+  - `bundle install`
+  - `bundle exec jekyll build` (outputs to `_site`)
+  - uploads and deploys the site to GitHub Pages
 
-## Deployment
+Enable Pages:
+1. In repository Settings → Pages, choose GitHub Actions as the source.
+2. For a custom domain, configure DNS to GitHub Pages and keep the `CNAME` file (`www.squishbit.com`) in the repo.
 
-To deploy to GitHub Pages:
+Manual build (optional):
+- `JEKYLL_ENV=production bundle exec jekyll build` (output in `_site/`)
+- Useful for local verification before pushing.
 
-1. Make sure you've run `npm run build` and committed the latest `css/styles.css`
-2. Push your changes to GitHub
-3. Go to your repository settings
-4. Under "GitHub Pages", select your main branch as the source
-5. Your site will be published at `https://[username].github.io/[repository-name]`
-
-Note: The `node_modules` folder is not needed for deployment - it's only used during development. GitHub Pages will serve your site using the built files. 
+Notes:
+- Do not commit `node_modules/` or `_site/`.
+- `css/styles.css` is generated from `css/input.css`. It is committed for convenience, but CI also rebuilds it during deployment.

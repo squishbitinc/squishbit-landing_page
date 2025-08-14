@@ -1,107 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squishbit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <!-- Custom styles (includes Tailwind) -->
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- AlpineJS CDN -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  </head>
-  <body class="bg-stone-50 text-blue-700">
-    <header class="container mx-auto px-4 py-8">
-      <h1 class="text-2xl font-condensed tracking-normal font-bold uppercase text-center">Squishbit</h1>
-    </header>
+---
+layout: default
+title: Squishbit
+description: Automatic image optimization: optimal formats, perfect compression, faster page loads.
+---
 
-    <main class="container mx-auto px-4">
-      <section class="py-16 flex flex-col items-center max-w-4xl mx-auto">
-        <h2 class="text-4xl md:text-6xl tracking-tighter font-bold text-center text-balance">Automatic image optimization</h2>
-      </section>
-      <section class="py-16 flex flex-col items-center">
-        <div x-data="{ useCdn: false }" class="flex flex-col items-center gap-y-8">
-          <!-- Toggle Switch -->
-          <label class="inline-flex items-center cursor-pointer">
-            <span class="mr-3 text-sm font-medium text-blue-400">Default</span>
-            <div class="relative inline-flex items-center">
-              <input type="checkbox" x-model="useCdn" class="sr-only peer">
-              <div class="w-11 h-6 bg-blue-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:translate-x-[-100%] peer-checked:after:border-white peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
-            </div>
-            <span class="ml-3 text-sm font-medium">Squishbit</span>
-          </label>
-          
-          <!-- Images -->
-          <div class="w-full max-w-5xl relative rounded-lg overflow-hidden">
-            <div x-show="useCdn" class="absolute top-0 left-0 p-1 px-1.5 bg-gray-900 text-xs font-medium flex gap-x-2"><span class="text-white">4k-bird.avif</span><span class="text-green-600">74kb</span></div>
-            <div x-show="!useCdn" class="absolute top-0 left-0 p-1 px-1.5 bg-gray-900 text-xs font-medium flex gap-x-2"><span class="text-white">4k-bird.jpg</span><span class="text-red-400">889.18kb</span></div>
-            <img 
-              x-show="useCdn"
-              src="https://cdn.squishbit.com/8ttxZK9PRj/https://www.squishbit.com/images/4k-bird.jpg?v=1219827623"
-              alt="4k bird from CDN" 
-              class="w-full"
-            >
-            <img 
-              x-show="!useCdn"
-              src="images/4k-bird.jpg" 
-              alt="4k bird from local" 
-              class="w-full"
-            >
-          </div>
-        </div>
-      </section>
-      <section class="py-12 flex flex-col md:flex-row gap-8 max-w-4xl mx-auto">
-        <div class="w-full md:w-1/3">
-          <h3 class="font-semibold mb-1">Up to 90% smaller files</h3>
-          <p class="text-sm">Optimal format, perfect compression.</p>
-        </div>
-        <div class="w-full md:w-1/3">
-          <h3 class="font-semibold mb-1">100% visual quality</h3>
-          <p class="text-sm">Smallest size, without the sacrifice.</p>
-        </div>
-        <div class="w-full md:w-1/3">
-          <h3 class="font-semibold mb-1">Faster page loads</h3>
-          <p class="text-sm">Better user experience, higher conversions.</p>
-        </div>
-      </section>
-      <section class="py-16 flex flex-col items-center max-w-5xl mx-auto">
-        <div class="w-full flex flex-col md:flex-row gap-16 md:gap-24 bg-blue-100 p-8 md:p-12 rounded-lg">
-          <div class="w-full md:w-2/5 pt-4">
-            <h3 class="text-lg font-semibold mb-2">Squishing Every Bit</h3>
-            <p class="text-sm">We squeeze every unnecessary byte so your store stays fast, competitive, and conversion-ready.</p>
-          </div>
-          <div class="w-full md:w-2/3">
-            <ol class="list-decimal list-inside divide-y divide-blue-400 divide-dashed [&_li]:py-6 border-y border-blue-400 border-dashed">
-              <li>
-                <p class="font-semibold mb-2">Install in one click</p>
-                <p class="text-sm">No coding, no hassle. Install our Shopify app and let Squishbit work behind the scenes.</p>
-              </li>
-              <li>
-                <p class="font-semibold mb-2">Automatic optimization</p>
-                <p class="text-sm">Our algorithm knows exactly how to compress, resize, and deliver visuals for lightning-fast loading.</p>
-              </li>
-              <li>
-                <p class="font-semibold mb-2">Faster page loads</p>
-                <p class="text-sm">Whether customers browse on mobile, tablet, or desktop, Squishbit adapts, ensuring they see the best version.</p>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </section>
-      <section class="py-16 flex flex-col items-center gap-y-4">
-        <span class="text-4xl mb-4 font-condensed tracking-normal font-bold uppercase text-center">Squishbit</span>
-        <p class="text-center text-balance">One click, and less than 3 minutes to install.</p>
-        <a href="https://apps.shopify.com/squishbit" class="underline hover:bg-blue-100 px-1 py-0.5 rounded-md">[ Go to App Store ]</a>
-      </section>
-    </main>
+<section class="py-16 flex flex-col items-center max-w-4xl mx-auto">
+  <h2
+    class="text-4xl md:text-6xl tracking-tighter font-bold text-center text-balance"
+  >
+    Automatic image optimization
+  </h2>
+</section>
 
-    <footer class="container mx-auto px-4 py-8 mt-8">
-      <p class="text-sm text-center">© 2025 Squishbit ApS</p>
-    </footer>
+<section class="py-16 flex flex-col items-center">
+  <div x-data="{ useCdn: false }" class="flex flex-col items-center gap-y-8">
+    <!-- Toggle Switch -->
+    <label class="inline-flex items-center cursor-pointer">
+      <span class="mr-3 text-sm font-medium text-blue-400">Default</span>
+      <div class="relative inline-flex items-center">
+        <input type="checkbox" x-model="useCdn" class="sr-only peer" />
+        <div
+          class="w-11 h-6 bg-blue-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:translate-x-[-100%] peer-checked:after:border-white peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"
+        ></div>
+      </div>
+      <span class="ml-3 text-sm font-medium">Squishbit</span>
+    </label>
 
-    <!-- Custom JavaScript -->
-    <script src="js/main.js"></script>
-  </body>
-</html> 
+    <!-- Images -->
+    <div class="w-full max-w-5xl relative rounded-lg overflow-hidden">
+      <div
+        x-show="useCdn"
+        class="absolute top-0 left-0 p-1 px-1.5 bg-gray-900 text-xs font-medium flex gap-x-2"
+      >
+        <span class="text-white">4k-bird.avif</span>
+        <span class="text-green-600">74kb</span>
+      </div>
+      <div
+        x-show="!useCdn"
+        class="absolute top-0 left-0 p-1 px-1.5 bg-gray-900 text-xs font-medium flex gap-x-2"
+      >
+        <span class="text-white">4k-bird.jpg</span>
+        <span class="text-red-400">889.18kb</span>
+      </div>
+      <img
+        x-show="useCdn"
+        src="https://cdn.squishbit.com/8ttxZK9PRj/https://www.squishbit.com/images/4k-bird.jpg?v=1219827623"
+        alt="4k bird from CDN"
+        class="w-full"
+      />
+      <img
+        x-show="!useCdn"
+        src="{{ '/images/4k-bird.jpg' | relative_url }}"
+        alt="4k bird from local"
+        class="w-full"
+      />
+    </div>
+  </div>
+</section>
+
+<section class="py-12 flex flex-col md:flex-row gap-8 max-w-4xl mx-auto">
+  <div class="w-full md:w-1/3">
+    <h3 class="font-semibold mb-1">Up to 90% smaller files</h3>
+    <p class="text-sm">Optimal format, perfect compression.</p>
+  </div>
+  <div class="w-full md:w-1/3">
+    <h3 class="font-semibold mb-1">100% visual quality</h3>
+    <p class="text-sm">Smallest size, without the sacrifice.</p>
+  </div>
+  <div class="w-full md:w-1/3">
+    <h3 class="font-semibold mb-1">Faster page loads</h3>
+    <p class="text-sm">Better user experience, higher conversions.</p>
+  </div>
+</section>
+
+<section class="py-16 flex flex-col items-center max-w-5xl mx-auto">
+  <div
+    class="w-full flex flex-col md:flex-row gap-16 md:gap-24 bg-blue-100 p-8 md:p-12 rounded-lg"
+  >
+    <div class="w-full md:w-2/5 pt-4">
+      <h3 class="text-lg font-semibold mb-2">Squishing Every Bit</h3>
+      <p class="text-sm">
+        We squeeze every unnecessary byte so your store stays fast, competitive,
+        and conversion-ready.
+      </p>
+    </div>
+    <div class="w-full md:w-2/3">
+      <ol
+        class="list-decimal list-inside divide-y divide-blue-400 divide-dashed [&_li]:py-6 border-y border-blue-400 border-dashed"
+      >
+        <li>
+          <p class="font-semibold mb-2">Install in one click</p>
+          <p class="text-sm">
+            No coding, no hassle. Install our Shopify app and let Squishbit work
+            behind the scenes.
+          </p>
+        </li>
+        <li>
+          <p class="font-semibold mb-2">Automatic optimization</p>
+          <p class="text-sm">
+            Our algorithm knows exactly how to compress, resize, and deliver
+            visuals for lightning-fast loading.
+          </p>
+        </li>
+        <li>
+          <p class="font-semibold mb-2">Faster page loads</p>
+          <p class="text-sm">
+            Whether customers browse on mobile, tablet, or desktop, Squishbit
+            adapts, ensuring they see the best version.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 flex flex-col items-center gap-y-4">
+  <span
+    class="text-4xl mb-4 font-condensed tracking-normal font-bold uppercase text-center"
+    >Squishbit</span
+  >
+  <p class="text-center text-balance">
+    One click, and less than 3 minutes to install.
+  </p>
+  <a
+    href="https://apps.shopify.com/squishbit"
+    class="underline hover:bg-blue-100 px-1 py-0.5 rounded-md"
+    >[ Go to App Store ]</a
+  >
+</section>

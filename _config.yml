@@ -1,0 +1,59 @@
+# Jekyll configuration for GitHub Pages
+
+# Site settings
+title: "Squishbit"
+description: "Automatic image optimization: optimal formats, perfect compression, faster page loads."
+lang: "en"
+timezone: "UTC"
+
+# URL settings (production)
+url: "https://www.squishbit.com"
+baseurl: "" # empty when deploying at domain root
+
+# Plugins (must be supported by GitHub Pages)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Permalinks for pages and posts
+permalink: pretty
+
+# Ensure custom domain file is preserved
+include:
+  - CNAME
+
+# Exclude development/build artifacts and Tailwind input from the output site
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - tailwind.config.js
+  - css/input.css
+  - README.md
+  - .gitignore
+  - .github
+
+# Markdown configuration
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Collections
+collections:
+  posts:
+    output: true
+
+# Defaults: apply default layout to pages unless overridden
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# SASS/SCSS directory (unused but conventional)
+sass:
+  sass_dir: _sass
