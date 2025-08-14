@@ -35,6 +35,8 @@ exclude:
   - README.md
   - .gitignore
   - .github
+  - vendor
+  - vendor/bundle
 
 # Markdown configuration
 markdown: kramdown

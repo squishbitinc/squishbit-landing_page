@@ -15,6 +15,10 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+env:
+  JEKYLL_ENV: production
+  BUNDLE_PATH: vendor/bundle
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,17 +49,18 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2"
+          bundler-cache: true
 
       - name: Install Ruby gems
 
         run: |
-          bundle config set path 'vendor/bundle'
+          bundle config set path vendor/bundle
           bundle install --jobs 4 --retry 3
 
       - name: Build Jekyll
-
         env:
           JEKYLL_ENV: production
+          BUNDLE_PATH: vendor/bundle
         run: bundle exec jekyll build --destination ./_site
 
       - name: Setup Pages
