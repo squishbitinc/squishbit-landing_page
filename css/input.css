@@ -1,17 +1,135 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-/* Custom styles beyond Tailwind */ 
+@theme {
+  --font-mono:
+    ui-monospace, SFMono-Regular, SF Mono, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+  --font-condensed: IBM Plex Sans Condensed, sans-serif;
+
+  --color-blue-50: #e9f0ff;
+  --color-blue-100: #d7e2ff;
+  --color-blue-200: #b8caff;
+  --color-blue-300: #8da5ff;
+  --color-blue-400: #6073ff;
+  --color-blue-500: #3c43ff;
+  --color-blue-600: #261aff;
+  --color-blue-700: #1c0df2;
+  --color-blue-800: #1910c3;
+  --color-blue-900: #1b1798;
+  --color-blue-950: #110e58;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility font-mono {
+  @apply tracking-tight;
+}
+
+@utility markdown {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul {
+    @apply mb-4;
+  }
+
+  li {
+    @apply mb-2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-6 font-semibold;
+  }
+
+  h1 {
+    @apply font-semibold text-xl;
+  }
+
+  h2 {
+    @apply font-semibold text-lg;
+  }
+
+  h3 {
+    @apply font-semibold;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  /* Create a scrollable wrapper around tables */
+  table {
+    @apply table-auto my-4 py-2;
+    display: block;
+    overflow-x: auto;
+    overflow-y: visible; /* This is the key change - allows vertical overflow */
+    width: 100%;
+  }
+
+  table td,
+  table th {
+    @apply align-top text-balance;
+    min-width: 20ch; /* Minimum width to prevent very narrow columns */
+    word-break: normal;
+  }
+
+  table th {
+    @apply whitespace-nowrap;
+  }
+
+  table tr td,
+  table tr th {
+    @apply px-4 pb-4;
+  }
+
+  table tr td:first-child,
+  table tr th:first-child {
+    @apply pl-0;
+  }
+
+  table tr td:last-child,
+  table tr th:last-child {
+    @apply pr-0;
+  }
+
+  thead {
+    @apply text-left;
+  }
+
+  ul {
+    @apply list-disc list-inside pl-4 [text-indent:-1em];
+  }
+}
+
+/* Custom styles beyond Tailwind */
 
 @layer base {
   body {
     @apply font-mono;
-  }
-}
-
-@layer components {
-  .font-mono {
-    @apply tracking-tight;
   }
 }
